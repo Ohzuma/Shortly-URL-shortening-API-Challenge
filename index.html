@@ -22,7 +22,7 @@
           <a href="/">
             <img src="./images/logo.svg" alt="" />
           </a>
-          <div class="nav_ul_item active">
+          <div class="nav_ul_item">
             <ul class="nav_ul">
               <li><a href="/Features">Features</a></li>
               <li><a href="/Pricing">Pricing</a></li>
@@ -60,11 +60,11 @@
     <main>
       <section class="url_section">
         <div class="url_div">
-          <form action="">
+          <form id="form">
             <input type="text" placeholder="Shorten a link here..." />
             <button type="submit">Shorten it!</button>
           </form>
-          <span>Please enter a valid link!!</span>
+          <span id="error"></span>
         </div>
         <div class="url_display">
           <article>
@@ -211,5 +211,7 @@
         </div>
       </section>
     </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>
