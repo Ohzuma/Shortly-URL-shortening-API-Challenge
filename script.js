@@ -9,7 +9,16 @@ nav_mobile_btn.addEventListener("click", () => {
 });
 
 async function ShortUrl(url, data) {
-  const response = await axios.post(url, { url: data });
+  const response = await axios.post(
+    url,
+    { url: data },
+    {
+      Headers: {
+        mode: "no-cors",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }
+  );
   return response;
 }
 
@@ -21,12 +30,11 @@ form.addEventListener("submit", async (e) => {
       throw "Please provide a URL";
     }
     const url = new URL(form_input.value);
-    await ShortUrl(
-      "https://cleanuri.com/api/v1/shorten",
-      `url=${url.href}`
-    ).then((res) => {
-      console.log(res);
-    });
+    await ShortUrl("https://cleanuri.com/api/v1/shorten", url.href).then(
+      (res) => {
+        console.log(res);
+      }
+    );
   } catch (error) {
     error_text.textContent = error;
   }
